@@ -11,8 +11,10 @@ namespace PiMonitor.Objects
         private readonly List<Variables> _variables;
         private readonly List<string> _contents;
         private readonly List<Variables> _mainVariables;
+        private readonly IDictionary<Variables, int> _mainDashBoarDictionary;
         private Variables _login;
         private readonly List<Variables> _requireVar;
+        string pagedown = "\"" + @"\n" + "\";";
 
         public Script()
         {
@@ -51,7 +53,7 @@ namespace PiMonitor.Objects
             _contents.Add("var tab = [];");
             foreach (var mainVar in MainVariables)
             {
-                _contents.Add("tab.push("+mainVar.Name+");");
+                _contents.Add("tab.push(" + mainVar.Name + ");");
             }
             _contents.Add("");
             _contents.Add("iimPlay(login)");
@@ -91,9 +93,8 @@ namespace PiMonitor.Objects
             _contents.Add("}");
         }
 
-        private void initRequireVar(string folder, string file,int waitTime, int tabcCount, int repeatTime,int waitBetweenTabs)
+        private void initRequireVar(string folder, string file, int waitTime, int tabcCount, int repeatTime, int waitBetweenTabs)
         {
-            string pagedown = "\"" + @"\n" + "\";";
             _contents.Add("var screenshot;");
             _contents.Add("screenshot = \"CODE:\";");
             _contents.Add("screenshot += \"SCREENSHOT TYPE=Page FOLDER=" + folder + " FILE=" + file +
@@ -117,6 +118,58 @@ namespace PiMonitor.Objects
             {
                 _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2 + i).ToString() + "\" + " + pagedown);
                 _contents.Add("switchtabs += \"WAIT SECONDS=" + waitBetweenTabs.ToString() + "\" + " + pagedown);
+            }
+            _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2).ToString() + "\" + " + pagedown);
+            _contents.Add("}");
+            _contents.Add("");
+        }
+
+        public void addSettings(string folder,string filename,int waitTime,int repeatTime)
+        {
+            addScreenShot(folder,filename);
+            addNextTabSetting();
+            addWaitSetting(waitTime);
+            addSwitchTabSetting(repeatTime);
+        }
+
+        private void addScreenShot(string folder,string filename)
+        {
+            _contents.Add("var screenshot;");
+            _contents.Add("screenshot = \"CODE:\";");
+            _contents.Add("screenshot += \"SCREENSHOT TYPE=Page FOLDER=" + folder + " FILE=" + filename +
+                          "_{{!NOW:dd-mm-yyyy<SP>hh-nn-ss}}.png" + "\" + " + pagedown);
+            _contents.Add("");
+        }
+
+        private void addNextTabSetting()
+        {
+            _contents.Add("var nexttab;");
+            _contents.Add("nexttab = \"CODE:\";");
+            _contents.Add("nexttab += \"TAB T=1" + "\" + " + pagedown);
+            _contents.Add("nexttab += \"TAB T=2" + "\" + " + pagedown);
+            _contents.Add("");
+        }
+
+        private void addWaitSetting(int waitTime)
+        {
+            _contents.Add("wait = \"CODE:\";");
+            _contents.Add("wait += \"WAIT SECONDS=" + waitTime.ToString() + "\" + " + pagedown);
+            _contents.Add("");
+        }
+
+        private void addSwitchTabSetting(int repeatTime)
+        {
+            _contents.Add("switchtabs = \"CODE:\";");
+            _contents.Add("switchtabs += \"TAB T=1" + "\" + " + pagedown);
+            _contents.Add("for (i=0;i<" + repeatTime.ToString() + ";i++)");
+            _contents.Add("{");
+            var tabcCount = _mainDashBoarDictionary.Count;
+            int i = 0;
+            foreach (var VARIABLE in _mainDashBoarDictionary)
+            {
+                _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2 + i).ToString() + "\" + " + pagedown);
+                _contents.Add("switchtabs += \"WAIT SECONDS=" + VARIABLE.Value.ToString() + "\" + " + pagedown);
+                i++;
             }
             _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2).ToString() + "\" + " + pagedown);
             _contents.Add("}");

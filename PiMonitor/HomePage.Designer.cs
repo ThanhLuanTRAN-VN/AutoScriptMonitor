@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbCreated = new System.Windows.Forms.Label();
             this.btnInitEdit = new System.Windows.Forms.Button();
             this.btnInitNew = new System.Windows.Forms.Button();
@@ -53,12 +54,11 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.lvPreview = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +74,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1636, 132);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PiMonitor.Properties.Resources.Tick_Mark_512;
+            this.pictureBox1.Location = new System.Drawing.Point(388, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // lbCreated
             // 
@@ -247,12 +257,12 @@
             // MainVar
             // 
             this.MainVar.Text = "Name";
-            this.MainVar.Width = 109;
+            this.MainVar.Width = 154;
             // 
             // WaitTime
             // 
             this.WaitTime.Text = "Wait Time";
-            this.WaitTime.Width = 104;
+            this.WaitTime.Width = 131;
             // 
             // label8
             // 
@@ -331,16 +341,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Preview";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PiMonitor.Properties.Resources.Tick_Mark_512;
-            this.pictureBox1.Location = new System.Drawing.Point(388, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -355,13 +355,13 @@
             this.Text = "HomePage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
