@@ -53,21 +53,24 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.lvPreview = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lbCreated);
             this.panel1.Controls.Add(this.btnInitEdit);
             this.panel1.Controls.Add(this.btnInitNew);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1636, 132);
             this.panel1.TabIndex = 0;
@@ -86,7 +89,7 @@
             // btnInitEdit
             // 
             this.btnInitEdit.Location = new System.Drawing.Point(9, 88);
-            this.btnInitEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInitEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnInitEdit.Name = "btnInitEdit";
             this.btnInitEdit.Size = new System.Drawing.Size(100, 28);
             this.btnInitEdit.TabIndex = 2;
@@ -97,7 +100,7 @@
             // btnInitNew
             // 
             this.btnInitNew.Location = new System.Drawing.Point(9, 52);
-            this.btnInitNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInitNew.Margin = new System.Windows.Forms.Padding(4);
             this.btnInitNew.Name = "btnInitNew";
             this.btnInitNew.Size = new System.Drawing.Size(100, 28);
             this.btnInitNew.TabIndex = 1;
@@ -127,7 +130,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 132);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1636, 160);
             this.panel2.TabIndex = 1;
@@ -135,7 +138,7 @@
             // btnAddtoMain
             // 
             this.btnAddtoMain.Location = new System.Drawing.Point(621, 31);
-            this.btnAddtoMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddtoMain.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddtoMain.Name = "btnAddtoMain";
             this.btnAddtoMain.Size = new System.Drawing.Size(173, 28);
             this.btnAddtoMain.TabIndex = 7;
@@ -155,7 +158,7 @@
             // lvDash
             // 
             this.lvDash.Location = new System.Drawing.Point(417, 9);
-            this.lvDash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvDash.Margin = new System.Windows.Forms.Padding(4);
             this.lvDash.Name = "lvDash";
             this.lvDash.Size = new System.Drawing.Size(160, 125);
             this.lvDash.TabIndex = 5;
@@ -175,7 +178,7 @@
             // btnDashEdit
             // 
             this.btnDashEdit.Location = new System.Drawing.Point(228, 50);
-            this.btnDashEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashEdit.Name = "btnDashEdit";
             this.btnDashEdit.Size = new System.Drawing.Size(100, 28);
             this.btnDashEdit.TabIndex = 3;
@@ -185,7 +188,7 @@
             // btnDashNew
             // 
             this.btnDashNew.Location = new System.Drawing.Point(16, 50);
-            this.btnDashNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashNew.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashNew.Name = "btnDashNew";
             this.btnDashNew.Size = new System.Drawing.Size(100, 28);
             this.btnDashNew.TabIndex = 2;
@@ -212,7 +215,7 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 292);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1636, 523);
             this.panel3.TabIndex = 2;
@@ -221,7 +224,7 @@
             // 
             this.chbErrorCheck.AutoSize = true;
             this.chbErrorCheck.Location = new System.Drawing.Point(756, 7);
-            this.chbErrorCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbErrorCheck.Margin = new System.Windows.Forms.Padding(4);
             this.chbErrorCheck.Name = "chbErrorCheck";
             this.chbErrorCheck.Size = new System.Drawing.Size(160, 21);
             this.chbErrorCheck.TabIndex = 10;
@@ -234,7 +237,7 @@
             this.MainVar,
             this.WaitTime});
             this.listView1.Location = new System.Drawing.Point(443, 4);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(289, 118);
             this.listView1.TabIndex = 9;
@@ -280,7 +283,7 @@
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 421);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1636, 394);
             this.panel4.TabIndex = 3;
@@ -288,7 +291,7 @@
             // btnCheck
             // 
             this.btnCheck.Location = new System.Drawing.Point(141, 9);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(100, 28);
             this.btnCheck.TabIndex = 8;
@@ -299,7 +302,7 @@
             // btnExport
             // 
             this.btnExport.Location = new System.Drawing.Point(1061, 346);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(100, 28);
             this.btnExport.TabIndex = 7;
@@ -310,7 +313,7 @@
             // lvPreview
             // 
             this.lvPreview.Location = new System.Drawing.Point(16, 37);
-            this.lvPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvPreview.Margin = new System.Windows.Forms.Padding(4);
             this.lvPreview.Name = "lvPreview";
             this.lvPreview.Size = new System.Drawing.Size(1023, 336);
             this.lvPreview.TabIndex = 6;
@@ -328,6 +331,16 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Preview";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PiMonitor.Properties.Resources.Tick_Mark_512;
+            this.pictureBox1.Location = new System.Drawing.Point(388, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -337,7 +350,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.panel1.ResumeLayout(false);
@@ -348,6 +361,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,5 +393,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader MainVar;
         private System.Windows.Forms.ColumnHeader WaitTime;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

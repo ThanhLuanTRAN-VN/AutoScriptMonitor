@@ -23,6 +23,7 @@ namespace PiMonitor
         public Variables Var => _var;
         public bool isClosed = true;
         public bool isEdit = false;
+        private Variables _beforeEdit;
         public LoginForm()
         {
             _actions = new List<string>();
@@ -38,7 +39,8 @@ namespace PiMonitor
             _urls = new List<string>();
             InitializeComponent();
             PageLoad();
-            isEdit = true;
+            _beforeEdit = var;
+            //isEdit = true;
         }
 
         private void PageLoad()
@@ -526,7 +528,17 @@ namespace PiMonitor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            this.isClosed = false;
             this.Close();
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.isClosed)
+            {
+                if (!this.isEdit) _var = null;
+                else _var = _beforeEdit;
+            }
         }
     }
     

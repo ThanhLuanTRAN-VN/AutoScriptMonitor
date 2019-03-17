@@ -31,9 +31,12 @@ namespace PiMonitor
         }
         private void NewLoginClose(object sender, FormClosedEventArgs e)
         {
-            _script.Login = _login.Var;
-            lbCreated.Text = "Created";
-            btnInitEdit.Enabled = true;
+            if (_login.Var != null)
+            {
+                _script.Login = _login.Var;
+                lbCreated.Text = "Created";
+                btnInitEdit.Enabled = true;
+            }
         }
 
         private void btnDashNew_Click(object sender, EventArgs e)
