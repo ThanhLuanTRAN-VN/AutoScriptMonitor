@@ -22,9 +22,10 @@ namespace PiMonitor.Objects
             _contents = new List<string>();
             _mainVariables = new List<Variables>();
             _requireVar = new List<Variables>();
+            _mainDashBoarDictionary = new Dictionary<Variables, int>();
         }
 
-        public void CreateScript()
+        public void CreateScript(string folder,string filename,int waitTime,int repeatTime)
         {
             _contents.Clear();
             foreach (var line in Login.Contents)
@@ -40,7 +41,8 @@ namespace PiMonitor.Objects
                 }
                 _contents.Add("");
             }
-            initRequireVar("/home/pi/iMacros/Log/pi02-suresnes_errorscreenlog", "pi02-suresnes", 20, 5, 6, 10);
+            addSettings(folder,filename,waitTime,repeatTime);
+            //initRequireVar("/home/pi/iMacros/Log/pi02-suresnes_errorscreenlog", "pi02-suresnes", 20, 5, 6, 10);
             initlogicPart();
         }
 
@@ -165,6 +167,7 @@ namespace PiMonitor.Objects
             _contents.Add("{");
             var tabcCount = _mainDashBoarDictionary.Count;
             int i = 0;
+
             foreach (var VARIABLE in _mainDashBoarDictionary)
             {
                 _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2 + i).ToString() + "\" + " + pagedown);
@@ -179,6 +182,8 @@ namespace PiMonitor.Objects
         public List<Variables> Variables => _variables;
 
         public List<Variables> MainVariables => _mainVariables;
+
+        public IDictionary<Variables, int> MainVarDictionary => _mainDashBoarDictionary;
 
         public Variables Login
         {
