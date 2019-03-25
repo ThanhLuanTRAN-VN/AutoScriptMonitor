@@ -50,7 +50,7 @@ namespace PiMonitor
         private void NewVariableFormClose(object sender, FormClosedEventArgs e)
         {
             _script.MainVariables.Add(_mainvar.Var);
-            _script.MainVarDictionary.Add(_mainvar.Var,0);
+            _script.WaitTime.Add(0);
             initListVar();
             lbVarCount.Text = "You have " + _script.MainVariables.Count + " variables";
         }
@@ -59,16 +59,14 @@ namespace PiMonitor
         {
             lvDash.Clear();
             lvVariablesDashBoard.Items.Clear();
+            int i = 0;
             foreach (var variable in _script.MainVariables)
             {
                 lvDash.Items.Add(variable.Name);
-            }
-
-            foreach (var variable in _script.MainVarDictionary)
-            {
-                ListViewItem it = new ListViewItem(variable.Key.Name);
-                it.SubItems.Add(variable.Value.ToString());
+                ListViewItem it = new ListViewItem(variable.Name);
+                it.SubItems.Add(_script.WaitTime[i].ToString());
                 lvVariablesDashBoard.Items.Add(it);
+                i++;
             }
         }
 
@@ -108,16 +106,6 @@ namespace PiMonitor
             _login.Show();
         }
 
-        private void btnAddtoMain_Click(object sender, EventArgs e)
-        {
-            int index = lvDash.SelectedIndices[0];
-            if (index != -1)
-            {
-                //_wait = new MainVariableWaitForm();
-                //_wait.FormClosed += NewMainVar;
-                //_wait.Show();
-            }
-        }
         private void NewMainVar(object sender, FormClosedEventArgs e)
         {
             initListVar();
@@ -134,5 +122,61 @@ namespace PiMonitor
             _wait.FormClosed += NewMainVar;
             _wait.Show();
         }
+
+        private void btnMoveUpVar_Click(object sender, EventArgs e)
+        {
+            int index = lvDash.Items.IndexOf(lvDash.SelectedItems[0]);
+            VarSwap(index, 0);
+            initListVar();
+            if (index != 0)
+            {
+                lvDash.Items[index - 1].Selected = true;
+                lvDash.Focus();
+            }
+        }
+
+        private void btnMoveDownVar_Click(object sender, EventArgs e)
+        {
+            int index = lvDash.Items.IndexOf(lvDash.SelectedItems[0]);
+            VarSwap(index, 1);
+            initListVar();
+            if (index != lvDash.Items.Count - 1) 
+            {
+                lvDash.Items[index + 1].Selected = true;
+                lvDash.Focus();
+            }
+        }
+
+        private void VarSwap(int index, int upDown)
+        {
+            Variables temps;
+            int tempsWait;
+            switch (upDown)
+            {
+                case 0:
+                    if (index != 0)
+                    {
+                        temps = _script.MainVariables[index];
+                        _script.MainVariables[index] = _script.MainVariables[index - 1];
+                        _script.MainVariables[index - 1] = temps;
+                        tempsWait = _script.WaitTime[index];
+                        _script.WaitTime[index] = _script.WaitTime[index - 1];
+                        _script.WaitTime[index - 1] = tempsWait;
+                    }
+                    break;
+                case 1:
+                    if (index != _script.MainVariables.Count - 1)
+                    {
+                        temps = _script.MainVariables[index];
+                        _script.MainVariables[index] = _script.MainVariables[index + 1];
+                        _script.MainVariables[index + 1] = temps;
+                        tempsWait = _script.WaitTime[index];
+                        _script.WaitTime[index] = _script.WaitTime[index + 1];
+                        _script.WaitTime[index + 1] = tempsWait;
+                    }
+                    break;
+            }
+        }
+
     }
 }

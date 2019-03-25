@@ -35,7 +35,6 @@
             this.btnInitNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAddtoMain = new System.Windows.Forms.Button();
             this.lbVarCount = new System.Windows.Forms.Label();
             this.lvDash = new System.Windows.Forms.ListView();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.btnDashNew = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAddTime = new System.Windows.Forms.Button();
             this.pnErrorInfo = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +62,8 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.lvPreview = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAddTime = new System.Windows.Forms.Button();
+            this.btnMoveDownVar = new System.Windows.Forms.Button();
+            this.btnMoveUpVar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -137,7 +138,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnAddtoMain);
+            this.panel2.Controls.Add(this.btnMoveUpVar);
+            this.panel2.Controls.Add(this.btnMoveDownVar);
             this.panel2.Controls.Add(this.lbVarCount);
             this.panel2.Controls.Add(this.lvDash);
             this.panel2.Controls.Add(this.label6);
@@ -150,16 +152,6 @@
             this.panel2.Size = new System.Drawing.Size(1227, 130);
             this.panel2.TabIndex = 1;
             // 
-            // btnAddtoMain
-            // 
-            this.btnAddtoMain.Location = new System.Drawing.Point(466, 25);
-            this.btnAddtoMain.Name = "btnAddtoMain";
-            this.btnAddtoMain.Size = new System.Drawing.Size(130, 23);
-            this.btnAddtoMain.TabIndex = 7;
-            this.btnAddtoMain.Text = "Add To Main Variable";
-            this.btnAddtoMain.UseVisualStyleBackColor = true;
-            this.btnAddtoMain.Click += new System.EventHandler(this.btnAddtoMain_Click);
-            // 
             // lbVarCount
             // 
             this.lbVarCount.AutoSize = true;
@@ -171,6 +163,7 @@
             // 
             // lvDash
             // 
+            this.lvDash.HideSelection = false;
             this.lvDash.Location = new System.Drawing.Point(306, 7);
             this.lvDash.MultiSelect = false;
             this.lvDash.Name = "lvDash";
@@ -219,37 +212,47 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.btnAddTime);
             this.panel3.Controls.Add(this.pnErrorInfo);
             this.panel3.Controls.Add(this.chbErrorCheck);
             this.panel3.Controls.Add(this.lvVariablesDashBoard);
             this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.tbxRepeat);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 237);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1227, 425);
             this.panel3.TabIndex = 2;
             // 
+            // btnAddTime
+            // 
+            this.btnAddTime.Location = new System.Drawing.Point(16, 51);
+            this.btnAddTime.Name = "btnAddTime";
+            this.btnAddTime.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTime.TabIndex = 12;
+            this.btnAddTime.Text = "Add Time";
+            this.btnAddTime.UseVisualStyleBackColor = true;
+            this.btnAddTime.Click += new System.EventHandler(this.btnAddTime_Click);
+            // 
             // pnErrorInfo
             // 
-            this.pnErrorInfo.Controls.Add(this.label9);
             this.pnErrorInfo.Controls.Add(this.label8);
             this.pnErrorInfo.Controls.Add(this.label7);
             this.pnErrorInfo.Controls.Add(this.label5);
             this.pnErrorInfo.Controls.Add(this.tbxFileName);
             this.pnErrorInfo.Controls.Add(this.tbxWaitTime);
-            this.pnErrorInfo.Controls.Add(this.tbxRepeat);
             this.pnErrorInfo.Controls.Add(this.tbxFileLocation);
-            this.pnErrorInfo.Location = new System.Drawing.Point(662, 0);
+            this.pnErrorInfo.Location = new System.Drawing.Point(594, 0);
             this.pnErrorInfo.Margin = new System.Windows.Forms.Padding(2);
             this.pnErrorInfo.Name = "pnErrorInfo";
-            this.pnErrorInfo.Size = new System.Drawing.Size(563, 106);
+            this.pnErrorInfo.Size = new System.Drawing.Size(631, 106);
             this.pnErrorInfo.TabIndex = 11;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(280, 69);
+            this.label9.Location = new System.Drawing.Point(385, 41);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 7;
@@ -258,7 +261,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 69);
+            this.label8.Location = new System.Drawing.Point(14, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 6;
@@ -267,7 +270,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(280, 18);
+            this.label7.Location = new System.Drawing.Point(14, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 5;
@@ -276,7 +279,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 18);
+            this.label5.Location = new System.Drawing.Point(14, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 4;
@@ -284,7 +287,7 @@
             // 
             // tbxFileName
             // 
-            this.tbxFileName.Location = new System.Drawing.Point(383, 11);
+            this.tbxFileName.Location = new System.Drawing.Point(117, 7);
             this.tbxFileName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxFileName.Name = "tbxFileName";
             this.tbxFileName.Size = new System.Drawing.Size(171, 20);
@@ -292,7 +295,7 @@
             // 
             // tbxWaitTime
             // 
-            this.tbxWaitTime.Location = new System.Drawing.Point(90, 62);
+            this.tbxWaitTime.Location = new System.Drawing.Point(117, 34);
             this.tbxWaitTime.Margin = new System.Windows.Forms.Padding(2);
             this.tbxWaitTime.Name = "tbxWaitTime";
             this.tbxWaitTime.Size = new System.Drawing.Size(171, 20);
@@ -300,7 +303,7 @@
             // 
             // tbxRepeat
             // 
-            this.tbxRepeat.Location = new System.Drawing.Point(383, 62);
+            this.tbxRepeat.Location = new System.Drawing.Point(388, 65);
             this.tbxRepeat.Margin = new System.Windows.Forms.Padding(2);
             this.tbxRepeat.Name = "tbxRepeat";
             this.tbxRepeat.Size = new System.Drawing.Size(171, 20);
@@ -308,7 +311,7 @@
             // 
             // tbxFileLocation
             // 
-            this.tbxFileLocation.Location = new System.Drawing.Point(90, 11);
+            this.tbxFileLocation.Location = new System.Drawing.Point(117, 61);
             this.tbxFileLocation.Margin = new System.Windows.Forms.Padding(2);
             this.tbxFileLocation.Name = "tbxFileLocation";
             this.tbxFileLocation.Size = new System.Drawing.Size(171, 20);
@@ -330,6 +333,7 @@
             this.lvVariablesDashBoard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.MainVar,
             this.WaitTime});
+            this.lvVariablesDashBoard.FullRowSelect = true;
             this.lvVariablesDashBoard.Location = new System.Drawing.Point(148, 3);
             this.lvVariablesDashBoard.Name = "lvVariablesDashBoard";
             this.lvVariablesDashBoard.Size = new System.Drawing.Size(218, 97);
@@ -408,15 +412,25 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Preview";
             // 
-            // btnAddTime
+            // btnMoveDownVar
             // 
-            this.btnAddTime.Location = new System.Drawing.Point(16, 41);
-            this.btnAddTime.Name = "btnAddTime";
-            this.btnAddTime.Size = new System.Drawing.Size(75, 23);
-            this.btnAddTime.TabIndex = 12;
-            this.btnAddTime.Text = "Add Time";
-            this.btnAddTime.UseVisualStyleBackColor = true;
-            this.btnAddTime.Click += new System.EventHandler(this.btnAddTime_Click);
+            this.btnMoveDownVar.Location = new System.Drawing.Point(434, 66);
+            this.btnMoveDownVar.Name = "btnMoveDownVar";
+            this.btnMoveDownVar.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveDownVar.TabIndex = 8;
+            this.btnMoveDownVar.Text = "Move Down";
+            this.btnMoveDownVar.UseVisualStyleBackColor = true;
+            this.btnMoveDownVar.Click += new System.EventHandler(this.btnMoveDownVar_Click);
+            // 
+            // btnMoveUpVar
+            // 
+            this.btnMoveUpVar.Location = new System.Drawing.Point(434, 14);
+            this.btnMoveUpVar.Name = "btnMoveUpVar";
+            this.btnMoveUpVar.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveUpVar.TabIndex = 9;
+            this.btnMoveUpVar.Text = "Move Up";
+            this.btnMoveUpVar.UseVisualStyleBackColor = true;
+            this.btnMoveUpVar.Click += new System.EventHandler(this.btnMoveUpVar_Click);
             // 
             // HomePage
             // 
@@ -464,7 +478,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbVarCount;
         private System.Windows.Forms.Button btnCheck;
-        private System.Windows.Forms.Button btnAddtoMain;
         private System.Windows.Forms.CheckBox chbErrorCheck;
         private System.Windows.Forms.ListView lvVariablesDashBoard;
         private System.Windows.Forms.ColumnHeader MainVar;
@@ -481,5 +494,7 @@
         private System.Windows.Forms.TextBox tbxFileName;
         private System.Windows.Forms.ListView lvDash;
         private System.Windows.Forms.Button btnAddTime;
+        private System.Windows.Forms.Button btnMoveDownVar;
+        private System.Windows.Forms.Button btnMoveUpVar;
     }
 }

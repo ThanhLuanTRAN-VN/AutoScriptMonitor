@@ -11,7 +11,7 @@ namespace PiMonitor.Objects
         private readonly List<Variables> _variables;
         private readonly List<string> _contents;
         private readonly List<Variables> _mainVariables;
-        private readonly IDictionary<Variables, int> _mainDashBoarDictionary;
+        private readonly List<int> _waitVarTime;
         private Variables _login;
         private readonly List<Variables> _requireVar;
         string pagedown = "\"" + @"\n" + "\";";
@@ -22,7 +22,7 @@ namespace PiMonitor.Objects
             _contents = new List<string>();
             _mainVariables = new List<Variables>();
             _requireVar = new List<Variables>();
-            _mainDashBoarDictionary = new Dictionary<Variables, int>();
+            _waitVarTime = new List<int>();
         }
 
         public void CreateScript(string folder,string filename,int waitTime,int repeatTime)
@@ -165,13 +165,13 @@ namespace PiMonitor.Objects
             _contents.Add("switchtabs += \"TAB T=1" + "\" + " + pagedown);
             _contents.Add("for (i=0;i<" + repeatTime.ToString() + ";i++)");
             _contents.Add("{");
-            var tabcCount = _mainDashBoarDictionary.Count;
+            var tabcCount = _mainVariables.Count;
             int i = 0;
 
-            foreach (var VARIABLE in _mainDashBoarDictionary)
+            foreach (var VARIABLE in _waitVarTime)
             {
                 _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2 + i).ToString() + "\" + " + pagedown);
-                _contents.Add("switchtabs += \"WAIT SECONDS=" + VARIABLE.Value.ToString() + "\" + " + pagedown);
+                _contents.Add("switchtabs += \"WAIT SECONDS=" + VARIABLE.ToString() + "\" + " + pagedown);
                 i++;
             }
             _contents.Add("switchtabs += \"TAB T=" + (-tabcCount + 2).ToString() + "\" + " + pagedown);
@@ -183,7 +183,7 @@ namespace PiMonitor.Objects
 
         public List<Variables> MainVariables => _mainVariables;
 
-        public IDictionary<Variables, int> MainVarDictionary => _mainDashBoarDictionary;
+        public List<int> WaitTime => _waitVarTime;
 
         public Variables Login
         {

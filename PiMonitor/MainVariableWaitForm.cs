@@ -30,7 +30,7 @@ namespace PiMonitor
             int i = 1;
             Label lbs = new Label();
             
-            foreach (var Variable in _script.MainVarDictionary.Keys)
+            foreach (var Variable in _script.MainVariables)
             {
                 Label lb = new Label();
                 lb.Text = Variable.Name;
@@ -51,9 +51,9 @@ namespace PiMonitor
         private void btnOk_Click(object sender, EventArgs e)
         {
             int i = 0;
-            foreach (var variable in _script.MainVarDictionary.Keys.ToList())
+            foreach (var variable in _script.MainVariables)
             {
-                _script.MainVarDictionary[variable] = int.Parse(_tbTimeList[i].Text);
+                _script.WaitTime[i] = int.Parse(_tbTimeList[i].Text);
                 i++;
             }
             isClose = false;
