@@ -16,6 +16,7 @@ namespace PiMonitor
         private Script _script;
         private MainVariable _mainvar;
         private LoginForm _login;
+        private int _check;
         public HomePage()
         {
             _script = new Script();
